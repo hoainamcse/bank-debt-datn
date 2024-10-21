@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@/*": ["src/*"],
       "@/demo/*": ["demo/*"],
       "@/layout/*": ["layout/*"],
       "@/styles/*": ["styles/*"],
