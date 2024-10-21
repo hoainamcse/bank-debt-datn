@@ -1,0 +1,45 @@
+{
+  "data": [
+    {
+      "so_dang_ky": "PCKBC-0091",
+      "thanh_tien": "2.916.000.000",
+      "so_nha": "85/18",
+      "ten_duong": "Phạm Viết Chánh",
+      "xa_phuong": "Phường 19",
+      "quan_huyen": "Bình Thạnh",
+      "loai_bds": "Căn hộ chung cư",
+      "trang_thai": "Chờ duyệt",
+      "nhan_vien_ql": {
+        "ho_va_ten": "Nguyễn Hoài Nam"
+      }
+    },
+    {
+      "so_dang_ky": "PCKBC-0072",
+      "thanh_tien": "1.416.000.000",
+      "so_nha": "18",
+      "ten_duong": "Nguyễn Thị Định",
+      "xa_phuong": "Thạnh Mỹ Lợi",
+      "quan_huyen": "Thủ Đức",
+      "loai_bds": "Nhà phố 2 tầng",
+      "trang_thai": "Chờ duyệt",
+      "nhan_vien_ql": {
+        "ma_nhan_vien": "SHB-0018",
+        "ho_va_ten": "Lê Văn Bằng"
+      }
+    },
+    {
+      "so_dang_ky": "PCKBC-0046",
+      "thanh_tien": "4.156.000.000",
+      "so_nha": "4A/30",
+      "ten_duong": "Lịch Đợi",
+      "xa_phuong": "Phường Đúc",
+      "quan_huyen": "Thành phố Huế",
+      "loai_bds": "Nhà phố 3 tầng",
+      "trang_thai": "Đã duyệt",
+      "nhan_vien_ql": {
+        "ma_nhan_vien": "SHB-0016",
+        "ho_va_ten": "Nguyễn Văn Phước"
+      }
+    }
+  ]
+}

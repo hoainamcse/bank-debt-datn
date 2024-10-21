@@ -14,18 +14,18 @@ const AppMenu = props => {
         icon: 'pi pi-fw pi-box',
         to: '/danh-muc-hanh-dong-thu-hoi-no',
       },
-      {
-        label: 'Kết quả thu hồi nợ',
-        icon: 'pi pi-fw pi-inbox',
-      },
-      {
-        label: 'Biểu mẫu',
-        icon: 'pi pi-fw pi-file-import',
-      },
-      {
-        label: 'Các bước khởi kiện',
-        icon: 'pi pi-fw pi-list',
-      },
+      // {
+      //   label: 'Kết quả thu hồi nợ',
+      //   icon: 'pi pi-fw pi-inbox',
+      // },
+      // {
+      //   label: 'Biểu mẫu',
+      //   icon: 'pi pi-fw pi-file-import',
+      // },
+      // {
+      //   label: 'Các bước khởi kiện',
+      //   icon: 'pi pi-fw pi-list',
+      // },
     ];
     if (props.user.role === 'NDH') {
       items.push({
@@ -95,7 +95,6 @@ const AppMenu = props => {
         {
           label: 'Gửi email',
           icon: 'pi pi-fw pi-envelope',
-          to: '/khoi-kien',
         },
       ],
     },
@@ -105,7 +104,7 @@ const AppMenu = props => {
         {
           label: 'Quản lý bất động sản',
           icon: 'pi pi-fw pi-building',
-          to: '/khoi-kien',
+          to: '/quan-ly-bat-dong-san',
         },
       ],
     },
