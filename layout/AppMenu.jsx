@@ -1,69 +1,54 @@
 /* eslint-disable @next/next/no-img-element */
 
-import React, { useContext } from 'react'
-import AppMenuItem from './AppMenuItem'
-import { LayoutContext } from './context/LayoutContext'
-import { MenuProvider } from './context/MenuContext'
-import Link from 'next/link'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
-const AppMenu = (props) => {
-  const { layoutConfig } = useContext(LayoutContext)
+import AppMenuItem from './AppMenuItem';
+import { MenuProvider } from './context/MenuContext';
+
+const AppMenu = props => {
   const getDanhMuc = () => {
+    const items = [
+      {
+        label: 'Hành động thu hồi nợ',
+        icon: 'pi pi-fw pi-box',
+        to: '/danh-muc-hanh-dong-thu-hoi-no',
+      },
+      {
+        label: 'Kết quả thu hồi nợ',
+        icon: 'pi pi-fw pi-inbox',
+      },
+      {
+        label: 'Biểu mẫu',
+        icon: 'pi pi-fw pi-file-import',
+      },
+      {
+        label: 'Các bước khởi kiện',
+        icon: 'pi pi-fw pi-list',
+      },
+    ];
     if (props.user.role === 'NDH') {
-      return [
-        {
-          label: 'Hành động thu hồi nợ',
-          icon: 'pi pi-fw pi-box',
-          to: '/danh-muc-hanh-dong-thu-hoi-no',
-        },
-        // {
-        //   label: 'Kết quả thu hồi',
-        //   icon: 'pi pi-fw pi-inbox',
-        // },
-        // {
-        //   label: 'Biểu mẫu',
-        //   icon: 'pi pi-fw pi-paperclip',
-        // },
-        {
-          label: 'Nhân viên',
-          icon: 'pi pi-fw pi-users',
-          to: '/nhan-vien',
-        },
-      ]
-    } else {
-      return [
-        {
-          label: 'Hành động thu hồi nợ',
-          icon: 'pi pi-fw pi-box',
-          to: '/danh-muc-hanh-dong-thu-hoi-no',
-        },
-        // {
-        //   label: 'Kết quả thu hồi',
-        //   icon: 'pi pi-fw pi-inbox',
-        // },
-        // {
-        //   label: 'Biểu mẫu',
-        //   icon: 'pi pi-fw pi-paperclip',
-        // },
-      ]
+      items.push({
+        label: 'Nhân viên',
+        icon: 'pi pi-fw pi-users',
+        to: '/nhan-vien',
+      });
     }
-  }
+
+    return items;
+  };
 
   const model = [
     {
       label: 'Trang chủ',
-      items: [
-        // { label: 'Dashboard mẫu', icon: 'pi pi-fw pi-home', to: '/' },
-        { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/dashboard' },
-      ],
+      items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/dashboard' }],
     },
     {
-      label: 'Danh mục',
+      label: 'Quản lí danh mục',
       items: getDanhMuc(),
     },
     {
-      label: 'Danh sách',
+      label: 'Quản lí khách hàng nợ xấu',
       items: [
         {
           label: 'Khách hàng',
@@ -75,18 +60,12 @@ const AppMenu = (props) => {
           icon: 'pi pi-fw pi-list',
           to: '/hanh-dong-thu-hoi-no',
         },
-        {
-          label: 'Tờ trình',
-          icon: 'pi pi-fw pi-file-edit',
-          items: [
-            { label: 'Khởi kiện', icon: 'pi pi-fw pi-file', to: '/to-trinh-khoi-kien' },
-            { label: 'Miễn giảm', icon: 'pi pi-fw pi-file', to: '/to-trinh-mien-giam' },
-          ],
-        },
+        { label: 'Tờ trình đánh giá hởi kiện', icon: 'pi pi-fw pi-file-export', to: '/to-trinh-khoi-kien' },
+        { label: 'Tờ trình giảm lãi', icon: 'pi pi-fw pi-file-export', to: '/to-trinh-mien-giam' },
       ],
     },
     {
-      label: 'Khởi kiện và thi hành án',
+      label: 'Quản lí quá trình khởi kiện - thi hành án',
       items: [
         {
           label: 'Quản lý khởi kiện',
@@ -95,7 +74,7 @@ const AppMenu = (props) => {
         },
         {
           label: 'Quản lý lịch hẹn',
-          icon: 'pi pi-fw pi-list',
+          icon: 'pi pi-fw pi-calendar',
           to: '/lich-hen',
         },
         {
@@ -110,27 +89,45 @@ const AppMenu = (props) => {
         },
       ],
     },
-  ]
+    {
+      label: 'Xuất thông báo phí',
+      items: [
+        {
+          label: 'Gửi email',
+          icon: 'pi pi-fw pi-envelope',
+          to: '/khoi-kien',
+        },
+      ],
+    },
+    {
+      label: 'Quản lí tài sản sau thu hồi',
+      items: [
+        {
+          label: 'Quản lý bất động sản',
+          icon: 'pi pi-fw pi-building',
+          to: '/khoi-kien',
+        },
+      ],
+    },
+  ];
 
   return (
     <MenuProvider>
       <ul className="layout-menu">
-        {model.map((item, i) => {
-          return !item?.seperator ? (
-            <AppMenuItem item={item} root={true} index={i} key={item.label} />
+        {model.map((item, i) =>
+          !item?.seperator ? (
+            <AppMenuItem item={item} root index={i} key={item.label} />
           ) : (
             <li className="menu-separator"></li>
           )
-        })}
+        )}
       </ul>
     </MenuProvider>
-  )
-}
+  );
+};
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  }
-}
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
-export default connect(mapStateToProps)(AppMenu)
+export default connect(mapStateToProps)(AppMenu);
